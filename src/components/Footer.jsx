@@ -1,11 +1,11 @@
 import React from "react";
 import { Facebook, Twitter, Linkedin, ArrowUp, Send } from "lucide-react";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="relative">
-      {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-black" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 text-gray-200">
@@ -13,36 +13,34 @@ const Footer = () => {
           {/* Logo Section */}
           <div>
             <h2 className="text-4xl font-extrabold text-white mb-4 whitespace-nowrap">
-            N-SQUARE
+              N-SQUARE
             </h2>
             <p className="text-gray-400 mb-6 leading-relaxed">
-            N-SQUARE COMPONENTS AND DEVICES is your trusted partner for industrial components and devices. We specialize in sourcing and supplying critical components for EMS, Automotive, and Automation industries, ensuring optimal performance and reliability.
-</p>
-<p className="text-gray-400 mb-6 leading-relaxed">
-Our commitment to quality and timely delivery makes us a preferred choice for businesses seeking reliable component solutions. We take pride in contributing to the success of manufacturing operations across India.
-
-
-</p>
+              N-SQUARE COMPONENTS AND DEVICES is your trusted partner for industrial components and devices. We specialize in sourcing and supplying critical components for EMS, Automotive, and Automation industries, ensuring optimal performance and reliability.
+            </p>
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              Our commitment to quality and timely delivery makes us a preferred choice for businesses seeking reliable component solutions. We take pride in contributing to the success of manufacturing operations across India.
+            </p>
 
             <div className="flex space-x-4">
-              <a
-                href="#"
+              <RouterLink
+                to="/facebook"
                 className="text-gray-400 hover:text-blue-500 transition-colors"
               >
                 <Facebook size={24} />
-              </a>
-              <a
-                href="#"
+              </RouterLink>
+              <RouterLink
+                to="/twitter"
                 className="text-gray-400 hover:text-blue-500 transition-colors"
               >
                 <Twitter size={24} />
-              </a>
-              <a
-                href="#"
+              </RouterLink>
+              <RouterLink
+                to="/linkedin"
                 className="text-gray-400 hover:text-blue-500 transition-colors"
               >
                 <Linkedin size={24} />
-              </a>
+              </RouterLink>
             </div>
           </div>
 
@@ -51,44 +49,36 @@ Our commitment to quality and timely delivery makes us a preferred choice for bu
             <h3 className="text-xl font-semibold text-white mb-4">Information</h3>
             <ul className="space-y-3">
               <li>
-                <Link
-                  to="latestblog"
-                  smooth={true}
-                  duration={500}
+                <RouterLink
+                  to="/blog"
                   className="text-gray-400 hover:text-blue-500 cursor-pointer"
                 >
                   Blog
-                </Link>
+                </RouterLink>
               </li>
               <li>
-                <Link
-                  to="ourservices"
-                  smooth={true}
-                  duration={500}
+                <RouterLink
+                  to="/services"
                   className="text-gray-400 hover:text-blue-500 cursor-pointer"
                 >
                   Services
-                </Link>
+                </RouterLink>
               </li>
               <li>
-                <Link
-                  to="faq"
-                  smooth={true}
-                  duration={500}
+                <RouterLink
+                  to="/faq"
                   className="text-gray-400 hover:text-blue-500 cursor-pointer"
                 >
                   FAQ
-                </Link>
+                </RouterLink>
               </li>
               <li>
-                <Link
-                  to="consultationform"
-                  smooth={true}
-                  duration={500}
+                <RouterLink
+                  to="/contact"
                   className="text-gray-400 hover:text-blue-500 cursor-pointer"
                 >
                   Contact
-                </Link>
+                </RouterLink>
               </li>
             </ul>
           </div>
@@ -98,21 +88,20 @@ Our commitment to quality and timely delivery makes us a preferred choice for bu
             <h3 className="text-xl font-semibold text-white mb-4">Contact Us</h3>
             <address className="not-italic space-y-2">
               <p className="text-gray-400">
-              Survey No. 365/2C, Walajabad Road
-Sunguvarchatram, Sriperumbudur Taluk
-Kancheepuram, Tamil Nadu - 602106
+                Survey No. 365/2C, Walajabad Road
+                Sunguvarchatram, Sriperumbudur Taluk
+                Kancheepuram, Tamil Nadu - 602106
 
-nsquarecomponentsdevices@gmail.com
+                nsquarecomponentsdevices@gmail.com
               </p>
               <p className="text-gray-400">
-                <a
-                  href="mailto:contact@mrygroups.com"
+                <RouterLink
+                  to="/contact"
                   className="hover:text-blue-500"
                 >
                   +91 9686842540
-                </a>
+                </RouterLink>
               </p>
-             
             </address>
           </div>
 
@@ -141,10 +130,9 @@ nsquarecomponentsdevices@gmail.com
             &copy; 2025 N-SQUARE COMPONENTS AND DEVICES. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center md:justify-start space-x-4">
-            <a href="#" className="text-gray-400 hover:text-blue-500 text-sm">
+            <RouterLink to="/privacy-policy" className="text-gray-400 hover:text-blue-500 text-sm">
               Privacy Policy
-            </a>
-            
+            </RouterLink>
           </div>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
