@@ -20,7 +20,7 @@ import LatestBlog from "./components/LatestBlog.jsx";
 import Footer2 from "./components/Footer2.jsx";
 import PrivacyPolicy from './components/PrivacyPolicy.jsx';
 import Projects from './components/Projects.jsx';
-
+import ScrollToTop from './components/ScrollToTop'
 // Main layout component that includes common elements
 const MainLayout = ({ children }) => (
   <>
@@ -58,6 +58,7 @@ const HomePage = () => (
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* Main route with layout wrapper */}
         <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
