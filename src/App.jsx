@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Element } from "react-scroll";
 import Header1 from './components/Header1.jsx';
 import Hero from './components/Hero.jsx';
@@ -18,47 +18,99 @@ import TeamSlider from "./components/TeamSlider.jsx";
 import HowWeWork from "./components/HowWeWork.jsx";
 import LatestBlog from "./components/LatestBlog.jsx";
 import Footer2 from "./components/Footer2.jsx";
-import Projects from './components/Projects.jsx'
+import PrivacyPolicy from './components/PrivacyPolicy.jsx';
+import Projects from './components/Projects.jsx';
+
+// Main layout component that includes common elements
+const MainLayout = ({ children }) => (
+  <>
+    <Header1 />
+    {children}
+    <Footer />
+  </>
+);
+
+// Home page component combining all the main sections
+const HomePage = () => (
+  <>
+    <Element name="hero">
+      <Hero />
+    </Element>
+    <Element name="t1">
+      <T1 />
+    </Element>
+    <T3 />
+    <Element name="ourservices">
+      <OurServices />
+    </Element>
+    <ChooseUs />
+    <HowWeWork />
+    <Element name="consultationform">
+      <ConsultationForm />
+    </Element>
+    <Element name="faq">
+      <FAQ />
+    </Element>
+    <StartNow />
+  </>
+);
+
 const App = () => {
   return (
     <Router>
-      <Header1 />
-      <Element name="hero">
-        <Hero />
-      </Element>
-      <Element name="t1">
-        <T1 />
-      </Element>
-      {/* <T2 /> */}
-      <T3 />
-      <Element name="ourservices">
-        <OurServices />
-      </Element>
-       <Element name="pro">
-       {/* <Projects/> */}
-      </Element>
-     
-      <ChooseUs />
-{/*       <Element name="latestblog">
-        <LatestBlog />
-      </Element> */}
-      <HowWeWork />
-      <Element name="consultationform">
-        <ConsultationForm />
-        {/* <ClientStats/>
-        <Testimonial/> */}
-      </Element>
-      <Element name="ts">
-        {/* <TeamSlider/> */}
-      </Element>
-      <Element name="faq">
-        <FAQ />
-      </Element>
-      <StartNow />
-      <Footer />
-{/*       <Footer2/> */}
+      <Routes>
+        {/* Main route with layout wrapper */}
+        <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
+        
+        {/* Individual page routes */}
+        <Route path="/privacy-policy" element={
+          <MainLayout>
+            <PrivacyPolicy />
+          </MainLayout>
+        } />
+        
+        <Route path="/projects" element={
+          <MainLayout>
+            <Projects />
+          </MainLayout>
+        } />
+        
+        <Route path="/services" element={
+          <MainLayout>
+            <Element name="ourservices">
+              <OurServices />
+            </Element>
+          </MainLayout>
+        } />
+        
+        <Route path="/about" element={
+          <MainLayout>
+            <T1 />
+            <ChooseUs />
+            <TeamSlider />
+          </MainLayout>
+        } />
+        
+        <Route path="/contact" element={
+          <MainLayout>
+            <ConsultationForm />
+          </MainLayout>
+        } />
+        
+        <Route path="/blog" element={
+          <MainLayout>
+            <LatestBlog />
+          </MainLayout>
+        } />
+        
+        <Route path="/faq" element={
+          <MainLayout>
+            <FAQ />
+          </MainLayout>
+        } />
+      </Routes>
     </Router>
   );
 };
 
-export default App
+export default App;
